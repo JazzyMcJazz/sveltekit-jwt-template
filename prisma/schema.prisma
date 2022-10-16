@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+//  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id
+  username       String   @unique
+  password_hash  String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  enabled        Boolean @default(true)
+  roles          Role[]
+  refresh_tokens RefreshToken[]
+}
+
+model Role {
+  name String @id
+//  name UserRole @id // can be used if enums are enabled
+  users User[]
+}
+
+// Enums can be used with MySQL, PostgreSQL natively and MongoDB enforced by Prisma
+//enum UserRole {
+//  ADMIN
+//  USER
+//}
+
+model RefreshToken {
+  id        Int    @id @default(autoincrement())
+  token     String @unique @default(uuid())
+  user      User   @relation(fields: [user_id], references: [id])
+  user_id   String
+  family    Int
+  iteration Int
+  valid     Boolean
+  expires   BigInt
+}

@@ -1,0 +1,2 @@
+Files in the $lib/server folder can only be called by server-side code.
+Any code that you don't want to be able to run in the client should be here.
