@@ -8,6 +8,9 @@ refresh tokens.
 It is based on a skeleton Sveltekit (from `npm create svelte@latest my_project`) with TypeScript,
 ESLint, Prettier and Playwright included.
 
+The authentication relies on RSA keys to sign and verify JWTs, please supply your own key pair
+in the `./src/lib/server/keystore`. Without them authentication will not work.
+
 Please look over the authentication logic for yourself. 
 I am no security expert and there might be room for improvement. 
 
