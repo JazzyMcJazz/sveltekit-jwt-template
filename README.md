@@ -8,6 +8,7 @@
 - `npm run dev`
 
 <h4>[optional]</h4>
+
 - Add RSA keys to the `./src/lib/server/keystore` folder. Without them authentication will not work. The files must be named `private.pem` and `public.pem`.
 
 <h3>Resources</h3>
