@@ -1,6 +1,7 @@
 # Sveltekit JWT Template
 
 <h3>Steps to run this project:</h3>
+
 - Copy the contents from `.env.example` to `.env` and fill in the details.
 - `npm install`
 - `npm run initdb`. This pushes the Prisma schema to a sqlite database.
