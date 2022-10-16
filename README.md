@@ -1,5 +1,18 @@
 # Sveltekit JWT Template
 
+<h3>Description</h3>
+
+This is a project with pre-implemented logic for authentication and authorization using JWT and
+refresh tokens.
+
+It is based on a skeleton Sveltekit (from `npm create svelte@latest my_project`) with TypeScript,
+ESLint, Prettier and Playwright included.
+
+Please look over the authentication logic for yourself. 
+I am no security expert and there might be room for improvement. 
+
+Use at your own discretion. 
+
 <h3>Steps to run this project:</h3>
 
 - Copy the contents from `.env.example` to `.env` and fill in the details.
