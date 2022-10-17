@@ -3,35 +3,35 @@ import type { RefreshToken } from "@prisma/client";
 import type { Cookies } from "@sveltejs/kit";
 import type { User } from "@prisma/client";
 
-import {AppEnv, CookieNames} from "$lib/server/interfaces/enums";
-import {signJwt, verifyJwt} from "./jwt";
+import { AppEnv, CookieNames } from "$lib/server/interfaces/enums";
+import { signJwt, verifyJwt } from "./jwt";
 import Env from "../environment/static";
 
 const expires = Number.parseInt(Env.JWT_EXPIRES);
 if (isNaN(expires)) throw new Error(`Environment variable ${Env.JWT_EXPIRES} is not a number!`);
 
 export const jwtCookieOptions: CookieSerializeOptions = {
-    path: '/',
-    httpOnly: true,
-    sameSite: 'strict',
-    secure: Env.NODE_ENV === AppEnv.PROD,
-    maxAge: 60 * expires,
-}
+	path: "/",
+	httpOnly: true,
+	sameSite: "strict",
+	secure: Env.NODE_ENV === AppEnv.PROD,
+	maxAge: 60 * expires,
+};
 
 export const refreshTokenCookieOptions: CookieSerializeOptions = {
-    path: '/',
-    httpOnly: true,
-    sameSite: 'strict',
-    secure: Env.NODE_ENV === AppEnv.PROD,
-}
+	path: "/",
+	httpOnly: true,
+	sameSite: "strict",
+	secure: Env.NODE_ENV === AppEnv.PROD,
+};
 
 export const authenticateJwtCookie = async (cookies: Cookies) => {
-    const jwt = cookies.get(CookieNames.JWT);
-    let verified;
-    if (jwt) verified = await verifyJwt(jwt);
-    if (!verified) expireCookies(cookies, CookieNames.JWT);
-    return verified;
-}
+	const jwt = cookies.get(CookieNames.JWT);
+	let verified;
+	if (jwt) verified = await verifyJwt(jwt);
+	if (!verified) expireCookies(cookies, CookieNames.JWT);
+	return verified;
+};
 
 /*
  * Signs a JWT token and sets the cookie.
@@ -41,13 +41,13 @@ export const authenticateJwtCookie = async (cookies: Cookies) => {
  * @returns: False if the cookie failed to get set, else True
  */
 export const setJwtCookie = (cookies: Cookies, user: User) => {
-    const token = signJwt(user);
-    if (token) {
-        cookies.set(CookieNames.JWT, token, jwtCookieOptions);
-        return true;
-    }
-    return false;
-}
+	const token = signJwt(user);
+	if (token) {
+		cookies.set(CookieNames.JWT, token, jwtCookieOptions);
+		return true;
+	}
+	return false;
+};
 
 /*
  * Sets a refresh token cookie.
@@ -58,17 +58,17 @@ export const setJwtCookie = (cookies: Cookies, user: User) => {
  * @returns: False if the cookie failed to get set, else True
  */
 export const setRefreshCookie = (cookies: Cookies, user: User, refreshToken: RefreshToken) => {
-    if (refreshToken) {
-        const expires = Number.parseInt(refreshToken.expires.toString());
-        const options = {...refreshTokenCookieOptions, expires: new Date(expires) }
-        cookies.set(CookieNames.REFRESH_TOKEN, refreshToken.token, options);
-        return true;
-    }
-    return false;
-}
+	if (refreshToken) {
+		const expires = Number.parseInt(refreshToken.expires.toString());
+		const options = { ...refreshTokenCookieOptions, expires: new Date(expires) };
+		cookies.set(CookieNames.REFRESH_TOKEN, refreshToken.token, options);
+		return true;
+	}
+	return false;
+};
 
 export const expireCookies = (Cookies: Cookies, ...cookies: string[]) => {
-    for (let cookie of cookies) {
-        Cookies.delete(cookie);
-    }
-}
+	for (const cookie of cookies) {
+		Cookies.delete(cookie);
+	}
+};

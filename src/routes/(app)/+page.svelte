@@ -1,7 +1,7 @@
 <script>
-    import { page } from "$app/stores"
+	import { page } from "$app/stores";
 
-    const { user } = $page.data;
+	const { user } = $page.data;
 </script>
 
-<h1>Welcome {user && user.username ? user.username : ''}</h1>
+<h1>Welcome {user && user.username ? user.username : ""}</h1>

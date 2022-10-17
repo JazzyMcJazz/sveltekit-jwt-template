@@ -3,11 +3,11 @@
 // and what to do when importing types
 
 declare namespace App {
-    import { UserPayload } from './lib/server/interfaces/interfaces';
+	import { UserPayload } from "./lib/server/interfaces/interfaces";
 
 	interface Locals {
-        user: UserPayload
-    }
+		user: UserPayload;
+	}
 	// interface PageData {}
 	// interface Error {}
 	// interface Platform {}
