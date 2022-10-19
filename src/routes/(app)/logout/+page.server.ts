@@ -1,9 +1,10 @@
-import type { Actions } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import type { PageServerLoad, Actions } from "./$types";
+
 import { redirect } from "@sveltejs/kit";
+
 import { removeRefreshTokenFamilyByToken } from "$lib/server/util/refresh-tokens";
-import { expireCookies } from "$lib/server/util/cookies";
 import { CookieNames } from "$lib/server/interfaces/enums";
+import { expireCookies } from "$lib/server/util/cookies";
 
 export const load: PageServerLoad = () => {
 	throw redirect(302, "/");

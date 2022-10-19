@@ -1,5 +1,4 @@
-import type { Action } from "@sveltejs/kit";
-import type { Actions, PageServerLoad } from "./$types";
+import type { Action, Actions, PageServerLoad } from "./$types";
 
 import { invalid, redirect } from "@sveltejs/kit";
 
