@@ -15,8 +15,8 @@
 		<input id="password" name="password" type="password" required />
 	</div>
 	<div>
-		<label for="repeat-password">Repeat Password</label>
-		<input id="repeat-password" name="repeatPassword" type="password" required />
+		<label for="repeatPassword">Repeat Password</label>
+		<input id="repeatPassword" name="repeatPassword" type="password" required />
 	</div>
 
 	{#if form?.error}
