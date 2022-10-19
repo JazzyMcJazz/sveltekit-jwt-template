@@ -57,6 +57,19 @@ class DatabaseGateway implements IUserRepo, IRefreshTokenRepo {
 				},
 			},
 		});
+
+		await this.db.user.upsert({
+			where: { username: "TEST_USER_NAME" },
+			update: {},
+			create: {
+				id: Snowflakes.nextHexId(),
+				username: "TEST_USER_NAME",
+				password_hash: await bcrypt.hash("TEST_USER_PASS", 12),
+				roles: {
+					connect: [{ name: Roles.USER }],
+				},
+			},
+		});
 	}
 
 	// ========== USER REPO ========== //
@@ -98,6 +111,29 @@ class DatabaseGateway implements IUserRepo, IRefreshTokenRepo {
 			.findUnique({ where: { username } })
 			.then((user) => user && user.enabled)
 			.catch(() => false);
+	}
+
+	public async disableUserById(id: string) {
+		return await this.db.user
+			.update({
+				where: { id },
+				data: { enabled: false },
+			})
+			.then(() => true)
+			.catch((error) => {
+				console.log(error);
+				return false;
+			});
+	}
+
+	public async deleteUserById(id: string) {
+		return await this.db.user
+			.delete({ where: { id } })
+			.then(() => true)
+			.catch((error) => {
+				console.log(error);
+				return false;
+			});
 	}
 
 	// ========== REFRESH TOKEN REPO ========== //
