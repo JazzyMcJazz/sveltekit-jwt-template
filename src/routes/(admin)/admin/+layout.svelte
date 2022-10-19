@@ -10,6 +10,6 @@
 
 <hr />
 
-<main data-sveltekit-prefetch>
+<main>
 	<slot />
 </main>

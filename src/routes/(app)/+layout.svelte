@@ -6,16 +6,16 @@
 </script>
 
 <nav>
-	<a href="/about" data-sveltekit-prefetch>About</a>
+	<a href="/about">About</a>
 
 	{#if !user}
-		<a href="/login" data-sveltekit-prefetch>Log In</a>
-		<a href="/register" data-sveltekit-prefetch>Register</a>
+		<a href="/login">Log In</a>
+		<a href="/register">Register</a>
 	{/if}
 
 	{#if user}
 		{#if user.roles.includes(Roles.ADMIN)}
-			<a href="/admin/dashboard" data-sveltekit-prefetch>Admin</a>
+			<a href="/admin/dashboard">Admin</a>
 		{/if}
 		<a href="/profile/dashboard">Profile</a>
 		<div style="display: inline-block">

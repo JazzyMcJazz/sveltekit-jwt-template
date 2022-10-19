@@ -5,7 +5,7 @@
 	const { title, paragraphs } = pageText;
 </script>
 
-<a href="/" data-sveltekit-prefetch>back</a>
+<a href="/">back</a>
 
 <h1>{@html title}</h1>
 
