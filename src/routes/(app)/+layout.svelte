@@ -17,6 +17,7 @@
 		{#if user.roles.includes(Roles.ADMIN)}
 			<a href="/admin/dashboard" data-sveltekit-prefetch>Admin</a>
 		{/if}
+		<a href="/profile/dashboard">Profile</a>
 		<div style="display: inline-block">
 			<form action="/logout" method="POST">
 				<button type="submit">Logout</button>
