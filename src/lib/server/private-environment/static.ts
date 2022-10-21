@@ -1,5 +1,4 @@
 import {
-	NODE_ENV,
 	JWT_EXPIRES,
 	JWT_ISSUER,
 	JWT_ALGORITHM,
@@ -7,7 +6,6 @@ import {
 } from "$env/static/private";
 
 class StaticEnv {
-	readonly NODE_ENV = NODE_ENV;
 	readonly JWT_ISSUER = JWT_ISSUER;
 	readonly JWT_EXPIRES = JWT_EXPIRES;
 	readonly JWT_ALGORITHM = JWT_ALGORITHM;
