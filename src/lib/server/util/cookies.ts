@@ -3,9 +3,9 @@ import type { RefreshToken } from "@prisma/client";
 import type { Cookies } from "@sveltejs/kit";
 import type { User } from "@prisma/client";
 
-import { AppEnv, CookieNames } from "$lib/server/interfaces/enums";
+import { CookieNames } from "$lib/server/interfaces/enums";
 import { signJwt, verifyJwt } from "./jwt";
-import Env from "../environment/static";
+import Env from "../private-environment/static";
 
 const expires = Number.parseInt(Env.JWT_EXPIRES);
 if (isNaN(expires)) throw new Error(`Environment variable ${Env.JWT_EXPIRES} is not a number!`);
@@ -14,7 +14,7 @@ export const jwtCookieOptions: CookieSerializeOptions = {
 	path: "/",
 	httpOnly: true,
 	sameSite: "strict",
-	secure: Env.NODE_ENV === AppEnv.PROD,
+	secure: import.meta.env.PROD,
 	maxAge: 60 * expires,
 };
 
@@ -22,7 +22,7 @@ export const refreshTokenCookieOptions: CookieSerializeOptions = {
 	path: "/",
 	httpOnly: true,
 	sameSite: "strict",
-	secure: Env.NODE_ENV === AppEnv.PROD,
+	secure: import.meta.env.PROD,
 };
 
 export const authenticateJwtCookie = async (cookies: Cookies) => {
