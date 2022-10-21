@@ -18,7 +18,7 @@ test("user is logged in", async ({ page }) => {
 	expect(await page.textContent("nav")).toContain("About");
 	expect(await page.textContent("nav")).toContain("Logout");
 	expect(await page.textContent("nav")).toContain("Profile");
-	expect(await page.textContent("nav")).not.toContain("Log In");
+	expect(await page.textContent("nav")).not.toContain("Log in");
 	expect(await page.textContent("nav")).not.toContain("Register");
 });
 
@@ -32,7 +32,7 @@ test("user can log out", async ({ page }) => {
 	await page.locator("button").getByText("Logout").click();
 	expect(await page.textContent("h1")).not.toContain(USER.username);
 	expect(await page.textContent("nav")).toContain("About");
-	expect(await page.textContent("nav")).toContain("Log In");
+	expect(await page.textContent("nav")).toContain("Log in");
 	expect(await page.textContent("nav")).toContain("Register");
 	expect(await page.textContent("nav")).not.toContain("Logout");
 	expect(await page.textContent("nav")).not.toContain("Profile");
