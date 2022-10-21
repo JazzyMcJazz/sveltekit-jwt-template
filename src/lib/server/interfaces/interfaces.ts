@@ -1,5 +1,5 @@
 import type { User, Role } from "@prisma/client";
-import type { Roles } from "$lib/enums/enums";
+import type { Roles } from "../../client/interfaces/enums";
 
 export interface UserWithRoles extends User {
 	roles?: Role[];

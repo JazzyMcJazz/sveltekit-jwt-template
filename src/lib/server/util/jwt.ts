@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 import fs from "fs/promises";
 
 import db from "$lib/server/database/DatabaseGateway";
-import Env from "$lib/server/environment/static";
+import Env from "$lib/server/private-environment/static";
 
 // RSA keys loaded here only to avoid the private key from being importable elsewhere.
 const privateKey: Buffer = await fs

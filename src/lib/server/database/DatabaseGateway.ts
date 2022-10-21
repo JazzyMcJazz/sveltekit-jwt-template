@@ -1,9 +1,9 @@
 import type { UserWithRoles } from "$lib/server/interfaces/interfaces";
 import type { RefreshToken } from "@prisma/client";
 import { PrismaClient } from "@prisma/client";
-import { Roles } from "$lib/enums/enums";
+import { Roles } from "../../client/interfaces/enums";
 import bcrypt from "bcrypt";
-import Env from "../environment/static";
+import Env from "../private-environment/static";
 import Snowflakes from "$lib/server/util/snowflakes";
 
 interface IUserRepo {

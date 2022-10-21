@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from "./$types";
-import { Roles } from "$lib/enums/enums";
+import { Roles } from "../../../lib/client/interfaces/enums";
 import { redirect } from "@sveltejs/kit";
 
 export const load: LayoutServerLoad = ({ locals }) => {

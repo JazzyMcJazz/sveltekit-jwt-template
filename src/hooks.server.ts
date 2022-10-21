@@ -11,7 +11,7 @@ import { validateAndRenewRefreshToken } from "$lib/server/util/refresh-tokens";
 import { signJwt } from "$lib/server/util/jwt";
 import { CookieNames } from "$lib/server/interfaces/enums";
 import db from "$lib/server/database/DatabaseGateway";
-import Env from "$lib/server/environment/dynamic";
+import Env from "$lib/server/private-environment/dynamic";
 
 export const handle: Handle = async ({ event, resolve }) => {
 	if (!Env.getInitialized()) {
