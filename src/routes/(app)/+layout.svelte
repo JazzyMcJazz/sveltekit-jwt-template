@@ -1,26 +1,28 @@
 <script>
 	import { page } from "$app/stores";
-	import { Roles } from "$lib/enums/enums.ts";
+	import { Roles } from "$lib/client/interfaces/enums.ts";
+	import { t } from "$lib/client/localization/translations";
 
 	const { user } = $page.data;
+
 </script>
 
 <nav>
-	<a href="/about">About</a>
+	<a href="/about">{$t('common.navAbout', { default: 'About' })}</a>
 
 	{#if !user}
-		<a href="/login">Log In</a>
-		<a href="/register">Register</a>
+		<a href="/login">{$t('common.navLogin', { default: 'Log in' })}</a>
+		<a href="/register">{$t('common.navRegister', { default: 'Register' })}</a>
 	{/if}
 
 	{#if user}
 		{#if user.roles.includes(Roles.ADMIN)}
-			<a href="/admin/dashboard">Admin</a>
+			<a href="/admin/dashboard">{$t('common.navAdmin', { default: 'Admin' })}</a>
 		{/if}
-		<a href="/profile/dashboard">Profile</a>
+		<a href="/profile/dashboard">{$t('common.navProfile', { default: 'Profile' })}</a>
 		<div style="display: inline-block">
 			<form action="/logout" method="POST">
-				<button type="submit">Logout</button>
+				<button type="submit">{$t('common.navLogout', { default: 'Logout' })}</button>
 			</form>
 		</div>
 	{/if}
