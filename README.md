@@ -1,5 +1,20 @@
 # Sveltekit JWT Template
 
+<h3>Templates</h3>
+
+- master (currently same as `i18n`)
+  - `npx degit jazzymcjazz/sveltekit-jwt-template`
+
+- <a href="https://github.com/JazzyMcJazz/sveltekit-jwt-template/tree/auth-only">auth-only</a>
+the basic template
+
+  - `npx degit jazzymcjazz/sveltekit-jwt-template#auth-only`
+
+- <a href="https://github.com/JazzyMcJazz/sveltekit-jwt-template/tree/i18n">i18n</a>
+comes with a translation library
+
+  - `npx degit jazzymcjazz/sveltekit-jwt-template#i18n`
+
 <h3>Description</h3>
 
 This is a project with pre-implemented logic for authentication and authorization using JWT and
