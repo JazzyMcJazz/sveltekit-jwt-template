@@ -3,17 +3,17 @@
 <h3>Templates</h3>
 
 - master (currently same as `i18n`)
-  - `npx degit jazzymcjazz/sveltekit-jwt-template`
+  - `npx degit jazzymcjazz/sveltekit-jwt-template my_project`
 
 - <a href="https://github.com/JazzyMcJazz/sveltekit-jwt-template/tree/auth-only">auth-only</a>
 the basic template
 
-  - `npx degit jazzymcjazz/sveltekit-jwt-template#auth-only`
+  - `npx degit jazzymcjazz/sveltekit-jwt-template#auth-only my_project`
 
 - <a href="https://github.com/JazzyMcJazz/sveltekit-jwt-template/tree/i18n">i18n</a>
 comes with a translation library
 
-  - `npx degit jazzymcjazz/sveltekit-jwt-template#i18n`
+  - `npx degit jazzymcjazz/sveltekit-jwt-template#i18n my_project`
 
 <h3>Description</h3>
 
