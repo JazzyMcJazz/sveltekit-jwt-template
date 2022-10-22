@@ -1,6 +1,11 @@
 # Sveltekit JWT Template
 
-<h3>Description</h3>
+`npx degit jazzymcjazz/sveltekit-jwt-tempalte#auth-only my_project`
+
+### auth-only
+This is the basic template with authentication implemented.
+
+### Description
 
 This is a project with pre-implemented logic for authentication and authorization using JWT and
 refresh tokens.
@@ -16,18 +21,18 @@ I am no security expert and there might be room for improvement.
 
 Use at your own discretion.
 
-<h3>Steps to run this project:</h3>
+### Steps to run this project:
 
 - Copy the contents from `.env.example` to `.env` and fill in the details.
 - `npm install`
 - `npm run initdb`. This pushes the Prisma schema to a sqlite database.
 - `npm run dev`
 
-<h4>[optional]</h4>
+#### [optional]
 
 - Add RSA keys to the `./src/lib/server/keystore` folder. Without them authentication will not work. The files must be named `private.pem` and `public.pem`.
 
-<h3>Resources</h3>
+### Resources
 
 - https://kit.svelte.dev/docs/
 - https://jwt.io/
